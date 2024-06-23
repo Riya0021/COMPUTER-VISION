@@ -1,0 +1,19 @@
+from PIL import Image
+
+# Load the image
+input_image_path = "output.png"
+image = Image.open(input_image_path).convert("RGBA")
+
+# Create a new image with the same size and a solid color background
+background_color = (255, 255, 255, 255)
+new_background = Image.new("RGBA", image.size, background_color)
+
+# Composite the original image with the new background
+new_image = Image.alpha_composite(new_background, image)
+
+# Save the new image
+output_image_path = "olo2.png"
+new_image.save(output_image_path)
+
+# If you want to display the new image
+new_image.show()
